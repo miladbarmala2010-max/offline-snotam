@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Offline SNOTAM</title>
+    <!-- PWA manifest -->
+<link rel="manifest" href="manifest.json">
+
+<!-- PWA theme color -->
+<meta name="theme-color" content="#163f32">
+
+<!-- Mobile browser settings -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Offline SNOTAM">
+
+    <!-- Main application stylesheet -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Main application container -->
+    <main class="app-container">
+
+
+        <!-- =========================================================
+             APPLICATION HEADER
+             ========================================================= -->
+
+        <header class="app-header">
+
+            <div class="header-title">
+
+                <h1>
+                    OFFLINE SNOTAM
+                </h1>
+
+                <p>
+                    Emergency SNOTAM Preparation Tool
+                </p>
+                
+
+            </div>
+
+
+            <div class="header-status">
+
+                <span class="status-dot"></span>
+
+                OFFLINE MODE
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================================================
+             SNOTAM FORM
+             ========================================================= -->
+
+        <section class="notam-form">
+
+
+            <h2>
+                SNOTAM INFORMATION
+            </h2>
+
+
+
+            <!-- =====================================================
+                 OBSERVATION INFORMATION
+                 ===================================================== -->
+
+            <div class="form-section">
+
+                <h3>
+                    OBSERVATION INFORMATION
+                </h3>
+
+
+                <div class="form-grid">
+
+
+                    <!-- 1. Aerodrome -->
+
+                    <div class="form-group">
+
+                        <label for="aerodrome">
+                            Aerodrome
+                        </label>
+
+                        <select id="aerodrome">
+
+                            <option value="">
+                                Select Aerodrome
+                            </option>
+
+                            <option value="OITR">
+                                OITR
+                            </option>
+
+                            <option value="OITK">
+                                OITK
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- 2. Lower Runway Designator -->
+
+                    <div class="form-group">
+
+                        <label for="runway-designator">
+                            Lower Runway Designator
+                        </label>
+
+                        <input
+                            type="text"
+                            id="runway-designator"
+                            placeholder="e.g. 03"
+                            maxlength="2"
+                        >
+
+                    </div>
+
+
+
+                    <!-- 3. Reduced Runway Width -->
+
+                    <div class="form-group">
+
+                        <label for="reduced-rwy-width">
+                            Reduced RWY Width
+                        </label>
+
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="reduced-rwy-width"
+                                min="0"
+                                step="1"
+                                placeholder="Enter width"
+                            >
+
+                            <span class="unit">
+                                m
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 4. Observation Date -->
+
+                    <div class="form-group">
+
+                        <label for="observation-date">
+                            Observation Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="observation-date"
+                        >
+
+                    </div>
+
+
+
+                    <!-- 5. Observation Time -->
+
+                    <div class="form-group">
+
+                        <label for="observation-time">
+                            Observation Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="observation-time"
+                            step="60"
+                        >
+
+                    </div>
+
+
+
+                    <!-- 6. Outside Air Temperature -->
+
+                    <div class="form-group">
+
+                        <label for="outside-temperature">
+                            Outside Air Temperature
+                        </label>
+
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="outside-temperature"
+                                step="1"
+                                placeholder="Enter temperature"
+                            >
+
+                            <span class="unit">
+                                °C
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 RUNWAY THIRD CONDITIONS
+                 ========================================================= -->
+
+            <div class="thirds-grid">
+
+
+                <!-- =====================================================
+                     FIRST RWY THIRD
+                     ===================================================== -->
+
+                <div class="third-box">
+
+
+                    <div class="third-header">
+                        1st RWY Third Lower Runway Designator
+                    </div>
+
+
+                    <div class="third-content">
+
+
+                        <div class="third-field">
+                        </div>
+
+
+
+                        <!-- Coverage -->
+
+                        <div class="third-field">
+
+                            <label>
+                                Recent Coverage Contaiminant For Each Runway Third :
+                            </label>
+
+
+                            <div class="radio-list">
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-first"
+                                        value="less10"
+                                    >
+
+                                    Less than 10%
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-first"
+                                        value="10to25"
+                                    >
+
+                                    Coverage between 10% and 25%
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-first"
+                                        value="greater25"
+                                    >
+
+                                    Coverage greater than 25%
+
+                                </label>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Surface condition -->
+
+                        <div
+                            class="surface-condition"
+                            id="surface-condition-first"
+                            hidden
+                        >
+
+
+                            <div class="third-field">
+
+                                <label for="surface-description-first">
+                                    Runway Surface Condition Description :
+                                </label>
+
+
+                                <select
+                                    id="surface-description-first"
+                                >
+
+                                    <option value="">
+                                        Select Condition
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <!-- Coverage percentage -->
+
+                            <div
+                                class="coverage-percentage"
+                                id="coverage-percentage-first"
+                                hidden
+                            >
+
+                                <label>
+                                    Coverage :
+                                </label>
+
+
+                                <div class="radio-inline">
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-first"
+                                            value="50"
+                                        >
+
+                                        50%
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-first"
+                                            value="75"
+                                        >
+
+                                        75%
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-first"
+                                            value="100"
+                                        >
+
+                                        100%
+
+                                    </label>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- Optional depth -->
+
+                            <div
+                                class="depth-field"
+                                id="depth-field-first"
+                            >
+
+                                <label for="depth-first">
+                                    Depth (mm) :
+                                </label>
+
+
+                                <div class="input-with-unit">
+
+                                    <input
+                                        type="number"
+                                        id="depth-first"
+                                        min="0"
+                                        step="1"
+                                        placeholder="Enter depth"
+                                    >
+
+                                    <span class="unit">
+                                        mm
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- RWYCC -->
+
+                        <div class="rwycc-result">
+
+                            <span>
+                                Runway Condition Code
+                            </span>
+
+                            <strong id="rwycc-first">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================================
+                     SECOND RWY THIRD
+                     ===================================================== -->
+
+                <div class="third-box">
+
+
+                    <div class="third-header">
+                        2nd RWY Third Lower Runway Designator
+                    </div>
+
+
+                    <div class="third-content">
+
+
+                        <div class="third-field">
+                        </div>
+
+
+
+                        <!-- Coverage -->
+
+                        <div class="third-field">
+
+                            <label>
+                                Recent Coverage Contaiminant For Each Runway Third :
+                            </label>
+
+
+                            <div class="radio-list">
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-second"
+                                        value="less10"
+                                    >
+
+                                    Less than 10%
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-second"
+                                        value="10to25"
+                                    >
+
+                                    Coverage between 10% and 25%
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-second"
+                                        value="greater25"
+                                    >
+
+                                    Coverage greater than 25%
+
+                                </label>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Surface condition -->
+
+                        <div
+                            class="surface-condition"
+                            id="surface-condition-second"
+                            hidden
+                        >
+
+
+                            <div class="third-field">
+
+                                <label for="surface-description-second">
+                                    Runway Surface Condition Description :
+                                </label>
+
+
+                                <select
+                                    id="surface-description-second"
+                                >
+
+                                    <option value="">
+                                        Select Condition
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <!-- Coverage percentage -->
+
+                            <div
+                                class="coverage-percentage"
+                                id="coverage-percentage-second"
+                                hidden
+                            >
+
+                                <label>
+                                    Coverage :
+                                </label>
+
+
+                                <div class="radio-inline">
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-second"
+                                            value="50"
+                                        >
+
+                                        50%
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-second"
+                                            value="75"
+                                        >
+
+                                        75%
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-second"
+                                            value="100"
+                                        >
+
+                                        100%
+
+                                    </label>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- Optional depth -->
+
+                            <div
+                                class="depth-field"
+                                id="depth-field-second"
+                            >
+
+                                <label for="depth-second">
+                                    Depth (mm) :
+                                </label>
+
+
+                                <div class="input-with-unit">
+
+                                    <input
+                                        type="number"
+                                        id="depth-second"
+                                        min="0"
+                                        step="1"
+                                        placeholder="Enter depth"
+                                    >
+
+                                    <span class="unit">
+                                        mm
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- RWYCC -->
+
+                        <div class="rwycc-result">
+
+                            <span>
+                                Runway Condition Code
+                            </span>
+
+                            <strong id="rwycc-second">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================================
+                     THIRD RWY THIRD
+                     ===================================================== -->
+
+                <div class="third-box">
+
+
+                    <div class="third-header">
+                        3nd RWY Third Lower Runway Designator
+                    </div>
+
+
+                    <div class="third-content">
+
+
+                        <div class="third-field">
+                        </div>
+
+
+
+                        <!-- Coverage -->
+
+                        <div class="third-field">
+
+                            <label>
+                                Recent Coverage contaiminant For Each Runway Third :
+                            </label>
+
+
+                            <div class="radio-list">
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-third"
+                                        value="less10"
+                                    >
+
+                                    Less than 10%
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-third"
+                                        value="10to25"
+                                    >
+
+                                    Coverage between 10% and 25%
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="coverage-third"
+                                        value="greater25"
+                                    >
+
+                                    Coverage greater than 25%
+
+                                </label>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Surface condition -->
+
+                        <div
+                            class="surface-condition"
+                            id="surface-condition-third"
+                            hidden
+                        >
+
+
+                            <div class="third-field">
+
+                                <label for="surface-description-third">
+                                    Runway Surface Condition Description :
+                                </label>
+
+
+                                <select
+                                    id="surface-description-third"
+                                >
+
+                                    <option value="">
+                                        Select Condition
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <!-- Coverage percentage -->
+
+                            <div
+                                class="coverage-percentage"
+                                id="coverage-percentage-third"
+                                hidden
+                            >
+
+                                <label>
+                                    Coverage :
+                                </label>
+
+
+                                <div class="radio-inline">
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-third"
+                                            value="50"
+                                        >
+
+                                        50%
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-third"
+                                            value="75"
+                                        >
+
+                                        75%
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="coverage-percent-third"
+                                            value="100"
+                                        >
+
+                                        100%
+
+                                    </label>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- Optional depth -->
+
+                            <div
+                                class="depth-field"
+                                id="depth-field-third"
+                            >
+
+                                <label for="depth-third">
+                                    Depth (mm) :
+                                </label>
+
+
+                                <div class="input-with-unit">
+
+                                    <input
+                                        type="number"
+                                        id="depth-third"
+                                        min="0"
+                                        step="1"
+                                        placeholder="Enter depth"
+                                    >
+
+                                    <span class="unit">
+                                        mm
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- RWYCC -->
+
+                        <div class="rwycc-result">
+
+                            <span>
+                                Runway Condition Code
+                            </span>
+
+                            <strong id="rwycc-third">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 ADJUSTED RWYCC
+                 ========================================================= -->
+
+            <div class="adjusted-rwycc-box">
+
+
+                <h3>
+                    Adjusted RWYCC
+                </h3>
+
+
+                <label class="adjusted-option">
+
+                    <input
+                        type="checkbox"
+                        id="adjusted-rwycc-toggle"
+                    >
+
+                    <span>
+                        By AD Decision RWYCC Upgrade /Downgrade
+                    </span>
+
+                </label>
+
+
+
+                <div
+                    id="adjusted-rwycc-fields"
+                    class="adjusted-rwycc-fields"
+                    hidden
+                >
+
+
+                    <div class="adjusted-field">
+
+                        <label for="adjusted-rwycc-first">
+                            FIRST THIRD
+                        </label>
+
+                        <input
+                            type="number"
+                            id="adjusted-rwycc-first"
+                            min="0"
+                            max="6"
+                            step="1"
+                            disabled
+                        >
+
+                    </div>
+
+
+
+                    <div class="adjusted-field">
+
+                        <label for="adjusted-rwycc-second">
+                            SECOND THIRD
+                        </label>
+
+                        <input
+                            type="number"
+                            id="adjusted-rwycc-second"
+                            min="0"
+                            max="6"
+                            step="1"
+                            disabled
+                        >
+
+                    </div>
+
+
+
+                    <div class="adjusted-field">
+
+                        <label for="adjusted-rwycc-third">
+                            THIRD THIRD
+                        </label>
+
+                        <input
+                            type="number"
+                            id="adjusted-rwycc-third"
+                            min="0"
+                            max="6"
+                            step="1"
+                            disabled
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 SITUATIONAL AWARENESS
+                 ========================================================= -->
+
+            <h3>
+                Situational Awareness Sections :
+            </h3>
+
+
+
+            <!-- =========================================================
+                 REDUCED RUNWAY LENGTH
+                 ========================================================= -->
+
+            <div class="notam-box">
+
+
+                <label class="checkbox-line">
+
+                    <input
+                        type="checkbox"
+                        id="reduced-rwy-length-toggle"
+                    >
+
+                    <span>
+                        REDUCED RUNWAY LENGTH , If Less Than Published Length :
+                    </span>
+
+                </label>
+
+
+
+                <div
+                    id="reduced-rwy-length-fields"
+                    class="dynamic-fields"
+                    hidden
+                >
+
+                    <!-- Rows are added by JavaScript -->
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 BOX J / K / L
+                 ========================================================= -->
+
+            <div class="form-section condition-section">
+
+
+                <div class="condition-list">
+
+
+                    <!-- Box J -->
+
+                    <label class="condition-option">
+
+                        <input
+                            type="checkbox"
+                            id="drifting-snow"
+                        >
+
+                        <span class="condition-text">
+                            DRIFTING SNOW ON THE RUNWAY
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- Box K -->
+
+                    <label class="condition-option">
+
+                        <input
+                            type="checkbox"
+                            id="loose-sand"
+                        >
+
+                        <span class="condition-text">
+                            LOOSE SAND ON THE RUNWAY
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- Box L -->
+
+                    <label class="condition-option">
+
+                        <input
+                            type="checkbox"
+                            id="chemical-treatment"
+                        >
+
+                        <span class="condition-text">
+                            CHEMICAL TREATMENT ON THE RUNWAY
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 BOX M
+                 ========================================================= -->
+
+            <div class="notam-box">
+
+
+                <label class="checkbox-line">
+
+                    <input
+                        type="checkbox"
+                        id="snowbanks-runway-toggle"
+                    >
+
+                    <span>
+                        SNOWBANKS ON THE RUNWAY
+                        (If Present ,Distance From Runway Center Line (m)
+                        Followed By "L" , "R" or "LR" as Applicable):
+                    </span>
+
+                </label>
+
+
+
+                <div
+                    id="snowbanks-runway-fields"
+                    class="dynamic-fields"
+                    hidden
+                >
+
+                    <!-- Rows are added by JavaScript -->
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 BOX N
+                 ========================================================= -->
+
+            <div class="notam-box">
+
+
+                <label class="checkbox-line">
+
+                    <input
+                        type="checkbox"
+                        id="snowbanks-taxiway-toggle"
+                    >
+
+                    <span>
+                        SNOWBANKS On A TAXIWAY :
+                    </span>
+
+                </label>
+
+
+
+                <div
+                    id="snowbanks-taxiway-fields"
+                    class="dynamic-fields"
+                    hidden
+                >
+
+                    <!-- Rows are added by JavaScript -->
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 BOX O
+                 ========================================================= -->
+
+            <div class="notam-box">
+
+
+                <label class="checkbox-line">
+
+                    <input
+                        type="checkbox"
+                        id="snowbanks-adjacent"
+                    >
+
+                    <span>
+                        SNOWBANKS ADJACENT TO THE RUNWAY :
+                    </span>
+
+                </label>
+
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 BOX P
+                 ========================================================= -->
+
+            <div class="notam-box">
+
+
+                <div class="radio-section">
+
+
+                    <label class="radio-choice">
+
+                        <input
+                            type="radio"
+                            name="taxiway-condition"
+                            value="all-poor"
+                        >
+
+                        <span>
+                            ALL TWYS POOR :
+                        </span>
+
+                    </label>
+
+
+
+                    <label class="radio-choice">
+
+                        <input
+                            type="radio"
+                            name="taxiway-condition"
+                            value="specific"
+                        >
+
+                        <span>
+                            TAXIWAY CONDITIONS :
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+
+                <div
+                    id="taxiway-condition-fields"
+                    class="dynamic-fields"
+                    hidden
+                >
+
+                    <!-- Rows are added by JavaScript -->
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 BOX R
+                 ========================================================= -->
+
+            <div class="notam-box">
+
+
+                <div class="radio-section">
+
+
+                    <label class="radio-choice">
+
+                        <input
+                            type="radio"
+                            name="apron-condition"
+                            value="all-poor"
+                        >
+
+                        <span>
+                            ALL APRONS POOR :
+                        </span>
+
+                    </label>
+
+
+
+                    <label class="radio-choice">
+
+                        <input
+                            type="radio"
+                            name="apron-condition"
+                            value="specific"
+                        >
+
+                        <span>
+                            APRON CONDITIONS :
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+
+                <div
+                    id="apron-condition-fields"
+                    class="dynamic-fields"
+                    hidden
+                >
+
+                    <!-- Rows are added by JavaScript -->
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================================================
+                 BOX T
+                 ========================================================= -->
+
+            <div class="notam-box">
+
+
+                <div class="remarks-row">
+
+
+                    <label for="plain-language-remarks">
+                        PLAIN-LANGUAGE REMARKS :
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="plain-language-remarks"
+                        placeholder="Enter remarks"
+                    >
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Main application logic -->
+
+    <!-- Main application logic -->
+<script src="js/app.js"></script>
+
+<!-- Developer credit -->
+<footer class="site-footer">
+    <span>Developed by Milad Barmala</span>
+</footer>
+
+<!-- Register the Service Worker for offline PWA support -->
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("sw.js")
+                .then(() => {
+                    console.log("Offline SNOTAM Service Worker registered.");
+                })
+                .catch((error) => {
+                    console.error(
+                        "Service Worker registration failed:",
+                        error
+                    );
+                });
+        });
+    }
+</script>
+
+</body>
+</html>

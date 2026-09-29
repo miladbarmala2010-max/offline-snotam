@@ -1,0 +1,1544 @@
+/* =========================================================
+   OFFLINE SNOTAM - Main Stylesheet
+   Clean operational interface for desktop and mobile
+   ========================================================= */
+
+
+/* =========================================================
+   BASIC PAGE SETUP
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #eef2f1;
+    color: #24302c;
+}
+
+
+/* =========================================================
+   MAIN APPLICATION CONTAINER
+   ========================================================= */
+
+.app-container {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+    padding: 24px;
+}
+
+
+/* =========================================================
+   APPLICATION HEADER
+   ========================================================= */
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 22px 26px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #163f32,
+            #245b48
+        );
+
+    border-radius: 14px 14px 0 0;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Header title */
+
+.header-title h1 {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.header-title p {
+    margin: 6px 0 0;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.82);
+}
+
+
+/* Offline status */
+
+.header-status {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #65d391;
+
+    box-shadow:
+        0 0 0 4px rgba(101, 211, 145, 0.15);
+}
+
+
+/* =========================================================
+   MAIN FORM AREA
+   ========================================================= */
+
+.notam-form {
+    background: #ffffff;
+
+    padding: 28px;
+
+    border-radius: 0 0 14px 14px;
+
+    box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Main page title */
+
+.notam-form > h2 {
+    margin: 0 0 22px;
+
+    padding-bottom: 14px;
+
+    color: #174736;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    border-bottom: 1px solid #dce3e0;
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.form-section {
+    margin-top: 8px;
+
+    padding: 22px;
+
+    background: #f8faf9;
+
+    border: 1px solid #dce4e1;
+
+    border-radius: 12px;
+}
+
+
+/* Section title */
+
+.form-section h3 {
+    margin: 0 0 20px;
+
+    color: #1b4d3c;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* Field labels */
+
+.form-group label {
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUTS / SELECT
+   ========================================================= */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 12px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    color: #26332f;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd6d1;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.form-group select {
+    cursor: pointer;
+}
+
+
+.form-group input::placeholder {
+    color: #9aa7a2;
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #39785f;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 120, 95, 0.12);
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   INPUT WITH UNIT
+   ========================================================= */
+
+.input-with-unit {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.input-with-unit input {
+    flex: 1;
+}
+
+.unit {
+    min-width: 25px;
+
+    color: #52615b;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   NUMBER INPUT
+   ========================================================= */
+
+.form-group input[type="number"] {
+    appearance: textfield;
+}
+
+
+/* =========================================================
+   DESKTOP LAYOUT
+   ========================================================= */
+
+.form-section .form-grid {
+    align-items: end;
+}
+
+
+/* =========================================================
+   RUNWAY CONDITION OPTIONS
+   ========================================================= */
+
+.condition-section {
+    margin-top: 20px;
+}
+
+
+.condition-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+.condition-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 48px;
+
+    padding: 12px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #d2dcd7;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.condition-option input {
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    flex-shrink: 0;
+
+    accent-color: #2d6d55;
+
+    cursor: pointer;
+}
+
+
+.condition-text {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #35443e;
+
+    line-height: 1.4;
+}
+
+
+.condition-option:has(input:checked) {
+    background: #edf7f1;
+
+    border-color: #579276;
+
+    box-shadow:
+        0 0 0 2px rgba(45, 109, 85, 0.08);
+}
+
+
+.condition-option:has(input:checked) .condition-text {
+    color: #1e6047;
+}
+
+
+/* =========================================================
+   RUNWAY THIRD SECTIONS
+   ========================================================= */
+
+.thirds-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+
+.third-box {
+    background: #f8faf9;
+
+    border: 1px solid #dce4e1;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+
+.third-header {
+    padding: 14px 18px;
+
+    color: #ffffff;
+
+    background: #245b48;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    letter-spacing: 0.4px;
+}
+
+
+.third-content {
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.third-content label {
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.third-content input {
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 12px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    color: #26332f;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd6d1;
+
+    border-radius: 7px;
+
+    outline: none;
+}
+
+
+.third-content input:focus {
+    border-color: #39785f;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 120, 95, 0.12);
+}
+
+
+/* =========================================================
+   RUNWAY THIRD CONDITION FIELDS
+   ========================================================= */
+
+.third-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+
+.third-field label {
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.45;
+}
+
+
+.third-field input,
+.third-field select {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 10px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #26332f;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd6d1;
+
+    border-radius: 7px;
+
+    outline: none;
+}
+
+
+.third-field input:focus,
+.third-field select:focus {
+    border-color: #39785f;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 120, 95, 0.12);
+}
+
+
+/* =========================================================
+   COVERAGE RADIO BUTTONS
+   ========================================================= */
+
+.radio-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.radio-list label,
+.radio-inline label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #46544f;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.radio-list input,
+.radio-inline input {
+    width: 16px;
+    height: 16px;
+
+    margin: 0;
+
+    accent-color: #2d6d55;
+
+    cursor: pointer;
+}
+
+
+.coverage-percentage {
+    margin-bottom: 18px;
+}
+
+
+.coverage-percentage > label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.radio-inline {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   DEPTH
+   ========================================================= */
+
+.depth-field {
+    margin-top: 4px;
+
+    margin-bottom: 18px;
+}
+
+
+.depth-field > label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* Depth hidden by default */
+
+.depth-field {
+    display: none;
+}
+
+
+/* JavaScript shows depth when required */
+
+.depth-field.show-depth {
+    display: block;
+}
+
+
+/* =========================================================
+   RWYCC RESULT
+   ========================================================= */
+
+.rwycc-result {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 8px;
+
+    padding: 13px 14px;
+
+    background: #edf7f1;
+
+    border: 1px solid #c6ddd1;
+
+    border-radius: 8px;
+}
+
+
+.rwycc-result span {
+    color: #285541;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+.rwycc-result strong {
+    min-width: 38px;
+
+    color: #174736;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ADJUSTED RWYCC
+   ========================================================= */
+
+.adjusted-rwycc-box {
+    margin-top: 20px;
+
+    padding: 22px;
+
+    background: #f8faf9;
+
+    border: 1px solid #dce4e1;
+
+    border-radius: 12px;
+}
+
+
+.adjusted-rwycc-box h3 {
+    margin: 0 0 18px;
+
+    padding-bottom: 12px;
+
+    color: #1b4d3c;
+
+    font-size: 17px;
+
+    border-bottom: 1px solid #dce3e0;
+}
+
+
+.adjusted-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 46px;
+
+    padding: 11px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #d2dcd7;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    color: #35443e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.adjusted-option input {
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    flex-shrink: 0;
+
+    accent-color: #2d6d55;
+
+    cursor: pointer;
+}
+
+
+.adjusted-option:has(input:checked) {
+    background: #edf7f1;
+
+    border-color: #579276;
+}
+
+
+.adjusted-rwycc-fields {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 18px;
+}
+
+
+.adjusted-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.adjusted-field label {
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+.adjusted-field input {
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 12px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    color: #26332f;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd6d1;
+
+    border-radius: 7px;
+
+    outline: none;
+}
+
+
+.adjusted-field input:focus {
+    border-color: #39785f;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 120, 95, 0.12);
+}
+
+
+/* =========================================================
+   SNOTAM BOXES - J TO T
+   ========================================================= */
+
+.notam-box {
+    margin-top: 16px;
+
+    padding: 18px 20px;
+
+    background: #f8faf9;
+
+    border: 1px solid #dce4e1;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   CHECKBOX ROWS
+   ========================================================= */
+
+.checkbox-line {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+
+.checkbox-line input {
+    width: 17px;
+    height: 17px;
+
+    margin: 1px 0 0;
+
+    accent-color: #2d6d55;
+
+    cursor: pointer;
+}
+
+
+/* Selected checkbox row */
+
+.checkbox-line:has(input:checked) {
+    color: #1e6047;
+}
+
+
+/* =========================================================
+   RADIO SECTION
+   ========================================================= */
+
+.radio-section {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.radio-choice {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.radio-choice input {
+    width: 17px;
+    height: 17px;
+
+    margin: 0;
+
+    accent-color: #2d6d55;
+
+    cursor: pointer;
+}
+
+
+/* Disabled / faded radio option */
+
+.radio-choice.disabled {
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   DYNAMIC FIELDS
+   ========================================================= */
+
+.dynamic-fields {
+    margin-top: 16px;
+}
+
+
+/* ---------------------------------------------------------
+   STANDARD DYNAMIC ROW
+   Used by Box M
+   --------------------------------------------------------- */
+
+.dynamic-row {
+    display: grid;
+
+    grid-template-columns:
+        35px
+        1fr
+        120px
+        120px
+        42px
+        42px;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+
+/* ---------------------------------------------------------
+   TAXIWAY / APRON ROW
+   Used by Box N / P / R
+   --------------------------------------------------------- */
+
+.dynamic-row.twy-row {
+    grid-template-columns:
+        35px
+        1fr
+        42px
+        42px;
+}
+
+
+.dynamic-row.apron-row {
+    grid-template-columns:
+        35px
+        1fr
+        42px
+        42px;
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED RUNWAY LENGTH ROW
+   --------------------------------------------------------- */
+
+.dynamic-row.reduced-rwy-row {
+    grid-template-columns:
+        35px
+        1fr
+        120px
+        150px
+        42px
+        42px;
+}
+
+
+/* Row number */
+
+.row-number {
+    color: #52615b;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* Dynamic inputs */
+
+.dynamic-row input,
+.dynamic-row select {
+    width: 100%;
+
+    height: 40px;
+
+    padding: 0 10px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #26332f;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd6d1;
+
+    border-radius: 7px;
+
+    outline: none;
+}
+
+
+.dynamic-row input::placeholder {
+    color: #9aa7a2;
+}
+
+
+.dynamic-row input:focus,
+.dynamic-row select:focus {
+    border-color: #39785f;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 120, 95, 0.12);
+}
+
+
+/* =========================================================
+   ADD / REMOVE BUTTONS
+   ========================================================= */
+
+.row-button {
+    width: 38px;
+
+    height: 38px;
+
+    padding: 0;
+
+    border: 1px solid #bfcfc8;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #285541;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.row-button:hover {
+    background: #edf7f1;
+
+    border-color: #579276;
+}
+
+
+.row-button.remove {
+    color: #8a4b4b;
+}
+
+
+.row-button.remove:hover {
+    background: #fbefef;
+
+    border-color: #c99999;
+}
+
+
+.row-button.add {
+    color: #285541;
+}
+
+
+/* =========================================================
+   PLAIN-LANGUAGE REMARKS
+   ========================================================= */
+
+.remarks-row {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        1fr;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.remarks-row label {
+    color: #35433e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.remarks-row input {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 12px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #26332f;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd6d1;
+
+    border-radius: 7px;
+
+    outline: none;
+}
+
+
+.remarks-row input::placeholder {
+    color: #9aa7a2;
+}
+
+
+.remarks-row input:focus {
+    border-color: #39785f;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 120, 95, 0.12);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .app-container {
+        max-width: 900px;
+
+        padding: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   CONDITION BOX TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .condition-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   RUNWAY THIRD TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .thirds-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adjusted-rwycc-fields {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    /* Dynamic rows become easier to use on phones */
+
+    .dynamic-row,
+    .dynamic-row.twy-row,
+    .dynamic-row.apron-row,
+    .dynamic-row.reduced-rwy-row {
+
+        display: grid;
+
+        grid-template-columns:
+            30px
+            minmax(0, 1fr)
+            38px
+            38px;
+
+        gap: 7px;
+    }
+
+
+    /* Keep row number on the left */
+
+    .dynamic-row .row-number {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+
+    /* Main field */
+
+    .dynamic-row > input,
+    .dynamic-row > select {
+        grid-column: 2;
+    }
+
+
+    /* Keep buttons together */
+
+    .dynamic-row > .row-button.remove {
+        grid-column: 3;
+    }
+
+    .dynamic-row > .row-button.add {
+        grid-column: 4;
+    }
+
+
+    /* Box M has several fields.
+       Stack them neatly on mobile. */
+
+    .dynamic-row:not(.twy-row):not(.apron-row):not(.reduced-rwy-row) {
+        grid-template-columns:
+            30px
+            minmax(0, 1fr)
+            38px
+            38px;
+    }
+
+
+    .dynamic-row:not(.twy-row):not(.apron-row):not(.reduced-rwy-row)
+    > .snowbank-rwy-name {
+        grid-column: 2;
+    }
+
+
+    .dynamic-row:not(.twy-row):not(.apron-row):not(.reduced-rwy-row)
+    > .snowbank-rwy-side {
+        grid-column: 2;
+    }
+
+
+    .dynamic-row:not(.twy-row):not(.apron-row):not(.reduced-rwy-row)
+    > .snowbank-rwy-distance {
+        grid-column: 2;
+    }
+
+
+    .dynamic-row:not(.twy-row):not(.apron-row):not(.reduced-rwy-row)
+    > .snowbank-rwy-position {
+        grid-column: 2;
+    }
+
+
+    .dynamic-row:not(.twy-row):not(.apron-row):not(.reduced-rwy-row)
+    > .row-button.remove {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+
+    .dynamic-row:not(.twy-row):not(.apron-row):not(.reduced-rwy-row)
+    > .row-button.add {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+
+    /* Reduced runway length */
+
+    .dynamic-row.reduced-rwy-row
+    > .reduced-rwy-name {
+        grid-column: 2;
+    }
+
+
+    .dynamic-row.reduced-rwy-row
+    > .reduced-rwy-side {
+        grid-column: 2;
+    }
+
+
+    .dynamic-row.reduced-rwy-row
+    > .reduced-rwy-value {
+        grid-column: 2;
+    }
+
+
+    .dynamic-row.reduced-rwy-row
+    > .row-button.remove {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+
+    .dynamic-row.reduced-rwy-row
+    > .row-button.add {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+
+    /* Remarks */
+
+    .remarks-row {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE - MAIN FORM
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .app-container {
+        padding: 8px;
+    }
+
+
+    /* Header */
+
+    .app-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 20px;
+
+        border-radius: 10px 10px 0 0;
+    }
+
+
+    .header-title h1 {
+        font-size: 25px;
+    }
+
+
+    .header-title p {
+        font-size: 13px;
+    }
+
+
+    .header-status {
+        align-self: flex-start;
+    }
+
+
+    /* Main form */
+
+    .notam-form {
+        padding: 16px;
+
+        border-radius: 0 0 10px 10px;
+    }
+
+
+    .notam-form > h2 {
+        font-size: 19px;
+    }
+
+
+    /* Section */
+
+    .form-section {
+        padding: 16px;
+
+        border-radius: 10px;
+    }
+
+
+    /* One field per row */
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    /* Bigger touch targets */
+
+    .form-group input,
+    .form-group select {
+        height: 46px;
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .app-container {
+        padding: 5px;
+    }
+
+
+    .notam-form {
+        padding: 12px;
+    }
+
+
+    .form-section {
+        padding: 13px;
+    }
+
+
+    .header-title h1 {
+        font-size: 22px;
+    }
+}
+/* Small developer credit at the bottom of the page */
+.site-footer {
+    text-align: center;
+    padding: 18px 10px 12px;
+    margin-top: 20px;
+    color: #8a9a91;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+}
+
+.site-footer span {
+    opacity: 0.85;
+}
