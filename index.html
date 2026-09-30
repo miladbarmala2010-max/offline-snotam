@@ -221,9 +221,11 @@
                         <div class="input-with-unit">
 
                             <input
-                                type="number"
+                                type="text"
                                 id="outside-temperature"
-                                step="1"
+                                inputmode="decimal"
+                                pattern="-?[0-9]*"
+                                autocomplete="off"
                                 placeholder="Enter temperature"
                             >
 

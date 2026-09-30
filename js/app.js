@@ -949,10 +949,10 @@ function addSnowbanksRunwayRow() {
         >
 
         <select class="snowbank-rwy-side">
-            <option value="">L / R / LR</option>
+            <option value="">L / R / C</option>
             <option value="L">L</option>
             <option value="R">R</option>
-            <option value="LR">LR</option>
+            <option value="C">C</option>
         </select>
 
         <input
@@ -2100,7 +2100,7 @@ function getRunwaySnowbankItems() {
 
         const side =
             row.querySelector(
-                ".snowbank-rwy-side"
+                ".snowbank-rwy-designator"
             )?.value;
 
 
@@ -2119,7 +2119,7 @@ function getRunwaySnowbankItems() {
         // Ignore empty rows
         if (
             !runway &&
-            !side &&
+            !designator &&
             !distance &&
             !position
         ) {
@@ -2129,7 +2129,7 @@ function getRunwaySnowbankItems() {
 
         if (
             runway &&
-            side &&
+            designator &&
             distance &&
             position
         ) {
